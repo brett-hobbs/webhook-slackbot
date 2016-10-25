@@ -9,6 +9,8 @@ This is a simple application that connects to the Slack RTM API (which appears t
 
 This application intends to provide a simple solution for getting a better outgoing webhook from Slack. Its very easy to configure and run on Heroku. There are only two settings required for configuration `SLACK_TOKEN` and `WEBHOOK_URL`. The 
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 Future updates will include things like
 1. filtering options
 2. XML webhook formatting
