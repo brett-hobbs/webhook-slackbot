@@ -4,9 +4,6 @@
   "repository": "https://github.com/brett-hobbs/webhook-slackbot",
   "success_url": "/",
   "env": {
-    "HEROKU_APP_NAME": {
-      "required": true
-    },
     "SLACK_TOKEN": {
       "description": "Slack bot RTM API token",
       "required": true
