@@ -9,11 +9,11 @@
     },
     "SLACK_TOKEN": {
       "description": "Slack bot RTM API token",
-      "required": false
+      "required": true
     },
     "WEBHOOK_URL": {
       "description": "Outgoing webhook url",
-      "required": false
+      "required": true
     },
     "NODE_ENV": "staging"
   },
