@@ -1,9 +1,9 @@
 'use strict'
 
-const slack = require('slack');
 const _ = require('lodash');
 const config = require('./config');
 const rp = require('request-promise');
+const slack = require('slack');
 
 const webhookSlackBot = slack.rtm.client();
 
@@ -22,25 +22,27 @@ webhookSlackBot.message(msg => {
     return;
   }
 
-  const webhookUrl = config('WEBHOOK_URL');
-  const webhookPayload = msg;
-  console.log(`Sending Webhook to ${webhookUrl}`);
+  const webhookUrls = config('WEBHOOK_URLS');
+  _.forEach(webhookUrls, webhookUrl => {
+    const webhookPayload = msg;
 
-  // Support signing of the payload.
-  const options = {
-    method: 'POST',
-    uri: webhookUrl,
-    body: webhookPayload,
-    json: true,
-  };
+    // Support signing of the payload.
+    const options = {
+      method: 'POST',
+      uri: webhookUrl,
+      body: webhookPayload,
+      json: true,
+    };
 
-  rp(options)
-    .then(parsedBody => {
-      console.log('POST succeeded...');
-    })
-    .catch(err => {
-      console.log('POST failed...', err);
-    });
+    console.log(`Sending Webhook to ${webhookUrl}`);
+    rp(options)
+      .then(parsedBody => {
+        console.log('POST succeeded...');
+      })
+      .catch(err => {
+        console.log(`POST failed...${err}`);
+      });
+  });
 });
 
 module.exports = webhookSlackBot;
