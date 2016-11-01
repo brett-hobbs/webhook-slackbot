@@ -7,15 +7,17 @@ const rp = require('request-promise');
 
 const webhookSlackBot = slack.rtm.client();
 
-webhookSlackBot.started((payload) => {
+webhookSlackBot.started(payload => {
   this.self = payload.self;
 });
 
-webhookSlackBot.message((msg) => {
+webhookSlackBot.message(msg => {
   console.log('New message: ', JSON.stringify(msg));
 
-  // Make this configurable
-  if (!msg.attachments || msg.attachments[0].pretext !== 'Tests result') {
+  const filterField = config('MESSAGE_FILTER_FIELD');
+  const filterText = config('MESSAGE_FILTER_TEXT');
+  if (filterField && filterText && _.get(msg, filterField, '').indexOf(filterText) === -1) {
+    console.log('Message filtered');
     return;
   }
 
@@ -23,6 +25,7 @@ webhookSlackBot.message((msg) => {
   const webhookPayload = msg;
   console.log(`Sending Webhook to ${webhookUrl}`);
 
+  // Support signing of the payload.
   const options = {
     method: 'POST',
     uri: webhookUrl,
