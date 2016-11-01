@@ -13,6 +13,8 @@ const config = {
   PROXY_URI: process.env.PROXY_URI,
   WEBHOOK_URL: process.env.WEBHOOK_URL,
   SLACK_TOKEN: process.env.SLACK_TOKEN,
+  MESSAGE_FILTER_FIELD: process.env.MESSAGE_FILTER_FIELD,
+  MESSAGE_FILTER_TEXT: process.env.MESSAGE_FILTER_TEXT,
   ICON_EMOJI: ':stars:'
 };
 
