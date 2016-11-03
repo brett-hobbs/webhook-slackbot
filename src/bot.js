@@ -16,9 +16,8 @@ webhookSlackBot.message(msg => {
 
   const filterField = config('MESSAGE_FILTER_FIELD');
   const filterText = config('MESSAGE_FILTER_TEXT');
-  console.log('Testing filters: ', filterField, filterText);
   if (filterField && filterText && _.get(msg, filterField, '').indexOf(filterText) === -1) {
-    console.log('Message filtered');
+    console.log(`Message filtered - message.${filterField} does not contain '${filterText}'`);
     return;
   }
 
