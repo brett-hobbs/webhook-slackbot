@@ -9,15 +9,15 @@
       "required": true
     },
     "WEBHOOK_URL": {
-      "description": "Outgoing webhook url",
+      "description": "Outgoing webhook url or urls delimited by a semicolon",
       "required": true
     },
     "MESSAGE_FILTER_FIELD": {
-      "description": "Optional field on which to filter",
+      "description": "Optional field on which to filter, used in conjunction with MESSAGE_FILTER_TEXT",
       "required": false
     },
     "MESSAGE_FILTER_TEXT": {
-      "description": "Text (or substring) expected in the filter field",
+      "description": "Text (substring) expected in the filter field",
       "required": false
     },
     "NODE_ENV": "staging"
