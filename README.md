@@ -11,14 +11,17 @@ This application intends to provide a simple solution for getting a better outgo
 
 Filtering messages is also supported with the `MESSAGE_FILTER_FIELD` and `MESSAGE_FILTER_TEXT` options. `MESSAGE_FILTER_FIELD` supports a lodash style [get path](https://lodash.com/docs/4.16.6#get) to a field with in the [Slack message object](https://api.slack.com/events/message) (For example `attachments[0].title` references `message.attachments[0].title`). `MESSAGE_FILTER_TEXT` is used to look for a matching substring in the aforementioned field.
 
-To try it out do the following:
+Try it out:
+
 1. Go to your slack settings ["Build a Custom Integration"](https://api.slack.com/custom-integrations) and get a token for API access
+
 2. Click this Heroku badge to deploy an instance: [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-3. Enter the token from step 1 and a webhook endpoint of your choosing to configure the bot
+
+3. Enter the token from step 1 and a webhook url endpoint of your choosing to configure the bot
 
 
-Future updates will include things like
+Future updates will include:
 * XML webhook formatting
 * Signing webhook payloads
 
-For now its pretty easy to pipe webhooks through a tool like [Reflector.io](http://www.reflector.io) for additional configuration.
+For now, its pretty easy to pipe your webhooks through a tool like [Reflector.io](https://reflector.io/) for additional configuration.
