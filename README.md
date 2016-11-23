@@ -3,7 +3,7 @@
 
 The [existing support](https://api.slack.com/outgoing-webhooks) for __outgoing__ webhooks from Slack suffers from a few serious shortcomings.
 - The only format offered is a key/value format that somewhat resembles an html form post. Traditional webhook formats like JSON and XML are not supported.
-- Likely due to the limitation mentioned above - rich messages with attachments are syndicated with an empty message body. Its possible to get some metadata about the message (channel, user, etc.) but the message itself is missing.
+- Likely due to the limitation mentioned above - rich messages with attachments are syndicated with an empty message body. Its possible to get some metadata about the message (channel, user, etc.) but the message itself may be missing entirely.
 
 This is a simple application that connects to the Slack RTM API (which appears to be where Slack is focusing its investment) and listens for messages. When a message occurs it broadcasts the metadata about the message and its full contents as a webhook with a JSON payload.
 
