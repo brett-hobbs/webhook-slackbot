@@ -5,7 +5,7 @@ The [existing support](https://api.slack.com/outgoing-webhooks) for __outgoing__
 - The only format offered is a key/value format that somewhat resembles an html form post. Traditional webhook formats like JSON and XML are not supported.
 - Likely due to the limitation mentioned above - rich messages with attachments are syndicated with an empty message body. Its possible to get some metadata about the message (channel, user, etc.) but the message itself may be missing entirely.
 
-This is a simple application that connects to the Slack RTM API (which appears to be where Slack is focusing its investment) and listens for messages. When a message occurs it broadcasts the metadata about the message and its full contents as a webhook with a JSON payload.
+This is a simple application that connects to the [Slack RTM API](https://api.slack.com/rtm) (which appears to be where Slack is focusing its investment) and listens for messages. When a message occurs it broadcasts the metadata about the message and its full contents as a webhook with a JSON payload.
 
 This application intends to provide a simple solution for getting a better outgoing webhook from Slack. Its very easy to configure and run on Heroku. There are only two [configuration variables](https://devcenter.heroku.com/articles/config-vars) required: `SLACK_TOKEN` and `WEBHOOK_URL`.
 
