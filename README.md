@@ -1,5 +1,5 @@
 # webhook-slackbot - Better Outgoing Webhooks from Slack
-## A SlackBot that listens to one or more Slack channels and sends a JSON webhook for each message
+#### A SlackBot that listens to one or more Slack channels and sends a JSON webhook for each message
 
 The [existing support](https://api.slack.com/outgoing-webhooks) for __outgoing__ webhooks from Slack suffers from a few serious shortcomings.
 - The only format offered is a key/value format that somewhat resembles an html form post. Traditional webhook formats like JSON and XML are not supported.
