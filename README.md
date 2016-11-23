@@ -9,7 +9,7 @@ This is a simple application that connects to the [Slack RTM API](https://api.sl
 
 This application intends to provide a simple solution for getting a better outgoing webhook from Slack. Its very easy to configure and run on Heroku. There are only two [configuration variables](https://devcenter.heroku.com/articles/config-vars) required: `SLACK_TOKEN` and `WEBHOOK_URL`.
 
-Filtering messages is also supported with the `MESSAGE_FILTER_FIELD` and `MESSAGE_FILTER_TEXT` options. `MESSAGE_FILTER_FIELD` supports a lodash style [get path](https://lodash.com/docs/4.16.6#get) to a field with in the [Slack message object](https://api.slack.com/events/message) (For example `attachments[0].title` references `message.attachments[0].title`). `MESSAGE_FILTER_TEXT` is used to look for a matching substring in the aforementioned field.
+Filtering messages is also supported with the `MESSAGE_FILTER_FIELD` and `MESSAGE_FILTER_TEXT` options. `MESSAGE_FILTER_FIELD` supports a lodash style [get path](https://lodash.com/docs/4.16.6#get) to a field within the [Slack message object](https://api.slack.com/events/message) (For example `attachments[0].title` references `message.attachments[0].title`). Then `MESSAGE_FILTER_TEXT` is used to filter by a matching substring in the aforementioned field.
 
 Try it out:
 
@@ -22,6 +22,6 @@ Try it out:
 
 Future updates will include:
 * XML webhook formatting
-* Signing webhook payloads
+* Signed webhook payloads
 
 For now, its pretty easy to pipe your webhooks through a tool like [Reflector.io](https://reflector.io/) for additional configuration.
