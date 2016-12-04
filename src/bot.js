@@ -11,11 +11,11 @@ webhookSlackBot.started(payload => {
   this.self = payload.self;
 });
 
-webhookSlackBot.matchesFilter = (msg, filterField, filterText) => {
+function matchesFilter(msg, filterField, filterText) {
   return (!filterField || _.get(msg, filterField, '').indexOf(filterText) > -1);
-};
+}
 
-webhookSlackBot.sendWebhooks = (webhookPayload, webhookUrls) => {
+function sendWebhooks(webhookPayload, webhookUrls) {
   // TODO Support signing of the payload.
   _.forEach(webhookUrls, webhookUrl => {
     console.log(`Sending Webhook to ${webhookUrl}`);
@@ -33,22 +33,23 @@ webhookSlackBot.sendWebhooks = (webhookPayload, webhookUrls) => {
         console.error(`POST failed - ${err}`);
       });
   });
-};
+}
 
 webhookSlackBot.message(msg => {
   console.log('New message: ', JSON.stringify(msg));
 
   const filterField = config('MESSAGE_FILTER_FIELD');
   const filterText = config('MESSAGE_FILTER_TEXT');
-
-  if (!this.matchesFilter(msg, filterField, filterText)) {
+  if (!matchesFilter(msg, filterField, filterText)) {
     console.log(`Message filtered - message.${filterField} does not contain '${filterText}'`);
     return;
   }
 
   const webhookUrls = config('WEBHOOK_URLS');
-
-  this.sendWebhooks(msg, webhookUrls);
+  sendWebhooks(msg, webhookUrls);
 });
+
+webhookSlackBot.matchesFilter = matchesFilter;
+webhookSlackBot.sendWebhooks = sendWebhooks;
 
 module.exports = webhookSlackBot;
