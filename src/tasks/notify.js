@@ -8,7 +8,8 @@ const Botkit = require('botkit');
 const controller = Botkit.slackbot({});
 const bot = controller.spawn();
 
-bot.configureIncomingWebhook({ url: config('WEBHOOK_URL') });
+// TODO
+bot.configureIncomingWebhook({});
 
 const msgDefaults = {
   response_type: 'in_channel',

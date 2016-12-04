@@ -17,7 +17,7 @@ const config = {
   SLACK_TOKEN: process.env.SLACK_TOKEN,
   MESSAGE_FILTER_FIELD: process.env.MESSAGE_FILTER_FIELD,
   MESSAGE_FILTER_TEXT: process.env.MESSAGE_FILTER_TEXT,
-  ICON_EMOJI: ':stars:'
+  ICON_EMOJI: ':robot_face:'
 };
 
 module.exports = key => {
