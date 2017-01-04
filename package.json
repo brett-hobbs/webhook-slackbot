@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./src",
     "notify": "node ./src/tasks/notify",
-    "test": "mocha"
+    "test": "mocha --opts mocha.opts"
   },
   "author": {
     "name": "Brett Hobbs",

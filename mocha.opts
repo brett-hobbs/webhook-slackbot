@@ -1,0 +1,6 @@
+--check-leaks
+--full-trace
+--slow 75
+--timeout 3000
+
+src/*_test.js
