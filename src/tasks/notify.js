@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const _ = require('lodash');
 const config = require('../config');
@@ -33,7 +33,7 @@ trending('javascript', (err, repos) => {
 
   let msg = _.defaults({ attachments: attachments }, msgDefaults);
 
-  bot.sendWebhook(msg, (err, res) => {
+  bot.sendWebhook(msg, err => {
     if (err) {
       throw err;
     }

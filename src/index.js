@@ -1,10 +1,9 @@
 'use strict';
 
+const bodyParser = require('body-parser');
+const config = require('./config');
 const express = require('express');
 const proxy = require('express-http-proxy');
-const bodyParser = require('body-parser');
-const _ = require('lodash');
-const config = require('./config');
 
 let bot = require('./bot');
 
@@ -12,7 +11,7 @@ let app = express();
 
 if (config('PROXY_URI')) {
   app.use(proxy(config('PROXY_URI'), {
-    forwardPath: (req, res) => { 
+    forwardPath: req => { 
       return require('url').parse(req.url).path;
     }
   }));

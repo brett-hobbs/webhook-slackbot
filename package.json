@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./src",
     "notify": "node ./src/tasks/notify",
+    "lint": "eslint ./src --quiet",
     "test": "mocha --opts mocha.opts"
   },
   "author": {
